@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Play, ArrowRight, Sparkles } from 'lucide-react';
 
+import { Link } from 'react-router-dom';
+
 export const Hero = () => {
   return (
     <section id="home" className="min-h-screen pt-32 pb-20 px-6 flex items-center justify-center overflow-hidden relative">
@@ -33,10 +35,10 @@ export const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-            <button className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold shadow-lg shadow-slate-200 hover:bg-slate-800 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+            <Link to="/demos" className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold shadow-lg shadow-slate-200 hover:bg-slate-800 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
               <Play size={18} fill="currentColor" />
               Listen to Demos
-            </button>
+            </Link>
             <button className="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-full font-bold hover:bg-pink-50 hover:border-pink-200 hover:text-pink-600 transition-all flex items-center gap-2">
               View Portfolio
               <ArrowRight size={18} />

@@ -1,29 +1,47 @@
-import React, { useState } from 'react';
-import { Menu, X, Music, Heart, Star } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ContactDialog } from './ContactDialog';
+import React, { useState } from "react";
+import { Menu, X, Music, Heart, Star } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { Link, useLocation } from "react-router-dom";
+import { ContactDialog } from "./ContactDialog";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const location = useLocation();
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Music', href: '#music' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "/#home" },
+    { name: "About", href: "/#about" },
+    { name: "Music", href: "/#music" },
+    { name: "Contact", href: "/#contact" },
   ];
+
+  const handleLinkClick = (href: string) => {
+    // If we are on the home page (or filtered hash), allow default behavior for hash links
+    // If we are on /demos, we need to go to / then hash
+    if (location.pathname !== "/" && href.startsWith("/#")) {
+      // React Router doesn't automatically scroll to hash on route change
+      // We might need a utility, but for now standard Link to="/" works
+      // However, href here is "/#home" which works with Link or a tag if fully qualified
+    }
+    setIsOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
       <div className="max-w-6xl mx-auto">
         <div className="bg-white/70 backdrop-blur-md rounded-full shadow-sm border border-white/50 px-6 py-3 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 group">
+          <Link
+            to="/"
+            className="flex items-center gap-2 group"
+          >
             <div className="bg-gradient-to-tr from-pink-400 to-violet-400 p-2 rounded-full text-white group-hover:rotate-12 transition-transform">
               <Music size={20} fill="currentColor" />
             </div>
-            <span className="font-bold text-xl tracking-tight text-slate-800">Rollie<span className="text-pink-400">.</span></span>
-          </a>
+            <span className="font-bold text-xl tracking-tight text-slate-800">
+              Rollie<span className="text-pink-400">.</span>
+            </span>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
@@ -37,7 +55,7 @@ export const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-400 transition-all group-hover:w-full rounded-full" />
               </a>
             ))}
-            <button 
+            <button
               onClick={() => setIsContactOpen(true)}
               className="bg-slate-900 text-white px-5 py-2 rounded-full font-medium hover:bg-slate-800 transition-transform hover:scale-105 active:scale-95 text-sm"
             >
@@ -46,7 +64,7 @@ export const Navigation = () => {
           </div>
 
           {/* Mobile Toggle */}
-          <button 
+          <button
             className="md:hidden text-slate-700 p-1 hover:bg-pink-100 rounded-full transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -73,10 +91,13 @@ export const Navigation = () => {
                   className="text-lg font-medium text-slate-700 hover:text-pink-500 hover:bg-pink-50 px-4 py-3 rounded-xl transition-colors flex items-center justify-between group"
                 >
                   {link.name}
-                  <Star size={16} className="opacity-0 group-hover:opacity-100 text-pink-400 transition-opacity" />
+                  <Star
+                    size={16}
+                    className="opacity-0 group-hover:opacity-100 text-pink-400 transition-opacity"
+                  />
                 </a>
               ))}
-              <button 
+              <button
                 onClick={() => {
                   setIsOpen(false);
                   setIsContactOpen(true);
@@ -89,8 +110,11 @@ export const Navigation = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      
-      <ContactDialog isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+
+      <ContactDialog
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+      />
     </nav>
   );
 };

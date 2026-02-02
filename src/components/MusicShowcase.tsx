@@ -2,44 +2,7 @@ import React, { useState } from 'react';
 import { Play, Pause, SkipForward, SkipBack, Heart, Share2, Volume2 } from 'lucide-react';
 import { motion } from 'motion/react';
 
-const tracks = [
-  {
-    id: 1,
-    title: "Cherry Blossom Dreams",
-    artist: "Rollie",
-    genre: "Anime OST",
-    duration: "3:42",
-    cover: "https://images.unsplash.com/photo-1761058782504-9727fce7b753?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400",
-    color: "bg-pink-100"
-  },
-  {
-    id: 2,
-    title: "Midnight in Manila",
-    artist: "Rollie",
-    genre: "OPM / Lofi",
-    duration: "4:05",
-    cover: "https://images.unsplash.com/photo-1617460237920-ea0b1bad4b0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400",
-    color: "bg-indigo-100"
-  },
-  {
-    id: 3,
-    title: "Symphony No. 7 (Remix)",
-    artist: "Rollie",
-    genre: "Classical Fusion",
-    duration: "2:58",
-    cover: "https://images.unsplash.com/photo-1657458891294-7380eb30d0a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400",
-    color: "bg-blue-100"
-  },
-  {
-    id: 4,
-    title: "School Rooftop",
-    artist: "Rollie",
-    genre: "Anime Opening",
-    duration: "1:30",
-    cover: "https://images.unsplash.com/photo-1632242219454-74c9948ed11d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400",
-    color: "bg-orange-100"
-  }
-];
+import { tracks } from '../data/tracks';
 
 export const MusicShowcase = () => {
   const [currentTrack, setCurrentTrack] = useState(tracks[0]);
