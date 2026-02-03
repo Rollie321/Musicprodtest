@@ -5,6 +5,7 @@ import { Hero } from './components/Hero';
 import { MusicShowcase } from './components/MusicShowcase';
 import { Footer } from './components/Footer';
 import { DemosPage } from './components/DemosPage';
+import { ThemeProvider } from './context/ThemeContext';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -18,9 +19,9 @@ const ScrollToTop = () => {
 const HomePage = () => (
   <>
     <Hero />
-    <section id="about" className="py-20 px-6 bg-white">
+    <section id="about" className="py-20 px-6 bg-white dark:bg-slate-900 transition-colors duration-300">
         <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-12">My Musical Universe</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-100 mb-12 transition-colors">My Musical Universe</h2>
         
         <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -28,10 +29,10 @@ const HomePage = () => (
             { title: 'OPM', desc: 'Heartfelt Filipino lyrics and melodies that resonate with the soul.', icon: '🇵🇭' },
             { title: 'Classical', desc: 'Orchestral arrangements blending traditional instruments with modern beats.', icon: '🎻' }
             ].map((genre, i) => (
-            <div key={i} className="p-8 rounded-3xl bg-slate-50 hover:bg-pink-50 transition-colors group cursor-default">
+            <div key={i} className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 hover:bg-pink-50 dark:hover:bg-slate-700 transition-colors group cursor-default border border-transparent dark:border-slate-700">
                 <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">{genre.icon}</div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">{genre.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{genre.desc}</p>
+                <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-3 transition-colors">{genre.title}</h3>
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed transition-colors">{genre.desc}</p>
             </div>
             ))}
         </div>
@@ -43,21 +44,23 @@ const HomePage = () => (
 
 function App() {
   return (
-    <Router>
-        <ScrollToTop />
-        <div className="min-h-screen bg-slate-50 font-sans selection:bg-pink-200 selection:text-pink-900">
-            <Navigation />
-            
-            <main>
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/demos" element={<DemosPage />} />
-                </Routes>
-            </main>
+    <ThemeProvider>
+      <Router>
+          <ScrollToTop />
+          <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans selection:bg-pink-200 selection:text-pink-900 transition-colors duration-300">
+              <Navigation />
+              
+              <main>
+                  <Routes>
+                      <Route path="/" element={<HomePage />} />
+                      <Route path="/demos" element={<DemosPage />} />
+                  </Routes>
+              </main>
 
-            <Footer />
-        </div>
-    </Router>
+              <Footer />
+          </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

@@ -41,7 +41,7 @@ export const ContactDialog = ({ isOpen, onClose }: ContactDialogProps) => {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden relative z-10"
+            className="bg-white dark:bg-slate-900 w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden relative z-10"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-pink-400 to-violet-400 p-6 text-white flex justify-between items-start">
@@ -64,37 +64,37 @@ export const ContactDialog = ({ isOpen, onClose }: ContactDialogProps) => {
             <div className="p-8">
               {formState === 'success' ? (
                 <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 text-green-500 dark:text-green-400 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Send size={32} />
                   </div>
-                  <h4 className="text-2xl font-bold text-slate-800 mb-2">Message Sent!</h4>
-                  <p className="text-slate-500">I'll get back to you as soon as possible.</p>
+                  <h4 className="text-2xl font-bold text-slate-800 dark:text-white mb-2">Message Sent!</h4>
+                  <p className="text-slate-500 dark:text-slate-400">I'll get back to you as soon as possible.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1">Name</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Name</label>
                     <input 
                       required
                       type="text" 
                       placeholder="Your name"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 outline-none transition-all bg-slate-50"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-pink-400 dark:focus:border-pink-500 focus:ring-2 focus:ring-pink-100 dark:focus:ring-pink-900/30 outline-none transition-all bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-white"
                     />
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email</label>
                     <input 
                       required
                       type="email" 
                       placeholder="hello@example.com"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 outline-none transition-all bg-slate-50"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-pink-400 dark:focus:border-pink-500 focus:ring-2 focus:ring-pink-100 dark:focus:ring-pink-900/30 outline-none transition-all bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1">Project Type</label>
-                    <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 outline-none transition-all bg-slate-50 text-slate-600">
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Project Type</label>
+                    <select className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-pink-400 dark:focus:border-pink-500 focus:ring-2 focus:ring-pink-100 dark:focus:ring-pink-900/30 outline-none transition-all bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
                       <option>Anime Opening / Ending</option>
                       <option>Game Soundtrack</option>
                       <option>Mixing & Mastering</option>
@@ -103,19 +103,19 @@ export const ContactDialog = ({ isOpen, onClose }: ContactDialogProps) => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1">Message</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Message</label>
                     <textarea 
                       required
                       rows={4}
                       placeholder="Tell me more about your vision..."
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 outline-none transition-all bg-slate-50 resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-pink-400 dark:focus:border-pink-500 focus:ring-2 focus:ring-pink-100 dark:focus:ring-pink-900/30 outline-none transition-all bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-white resize-none"
                     />
                   </div>
 
                   <button 
                     disabled={formState === 'submitting'}
                     type="submit"
-                    className="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 shadow-lg shadow-slate-200 mt-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 py-4 rounded-xl font-bold hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 shadow-lg shadow-slate-200 dark:shadow-slate-900/50 mt-2 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {formState === 'submitting' ? (
                       <>

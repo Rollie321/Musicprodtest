@@ -19,17 +19,17 @@ export const DemosPage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-slate-50 pt-32 pb-20 px-6">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-32 pb-20 px-6 transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
         <div className="mb-12">
-            <Link to="/" className="inline-flex items-center gap-2 text-slate-500 hover:text-pink-500 mb-6 transition-colors font-medium">
+            <Link to="/" className="inline-flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-pink-500 dark:hover:text-pink-400 mb-6 transition-colors font-medium">
                 <ArrowLeft size={20} />
                 Back to Home
             </Link>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Demo Archives</h1>
-          <p className="text-lg text-slate-600 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-4 transition-colors">Demo Archives</h1>
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl transition-colors">
             Explore the full collection of sketches, unreleased tracks, and finished masterpieces.
           </p>
         </div>
@@ -43,7 +43,7 @@ export const DemosPage = () => {
               placeholder="Search tracks..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 outline-none transition-all shadow-sm"
+              className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 dark:border-slate-700 focus:border-pink-400 dark:focus:border-pink-500 focus:ring-2 focus:ring-pink-100 dark:focus:ring-pink-900/30 outline-none transition-all shadow-sm bg-white dark:bg-slate-800 text-slate-800 dark:text-white placeholder-slate-400"
             />
           </div>
           <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
@@ -53,8 +53,8 @@ export const DemosPage = () => {
                     onClick={() => setSelectedGenre(genre)}
                     className={`px-6 py-4 rounded-2xl font-medium whitespace-nowrap transition-all ${
                         selectedGenre === genre 
-                        ? 'bg-slate-900 text-white shadow-lg shadow-slate-200' 
-                        : 'bg-white text-slate-600 border border-slate-200 hover:border-pink-300 hover:text-pink-500'
+                        ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-lg shadow-slate-200 dark:shadow-slate-900/50' 
+                        : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-pink-300 dark:hover:border-pink-500 hover:text-pink-500 dark:hover:text-pink-400'
                     }`}
                  >
                      {genre}
@@ -70,7 +70,7 @@ export const DemosPage = () => {
                     layout
                     key={track.id}
                     onClick={() => setSelectedTrack(track)}
-                    className="group bg-white rounded-3xl p-4 border border-slate-100 hover:border-pink-200 hover:shadow-xl hover:shadow-pink-100/50 transition-all cursor-pointer"
+                    className="group bg-white dark:bg-slate-800 rounded-3xl p-4 border border-slate-100 dark:border-slate-700 hover:border-pink-200 dark:hover:border-pink-800 hover:shadow-xl hover:shadow-pink-100/50 dark:hover:shadow-pink-900/20 transition-all cursor-pointer"
                 >
                     <div className="aspect-video w-full rounded-2xl overflow-hidden mb-4 relative">
                         <img src={track.cover} alt={track.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
@@ -83,12 +83,12 @@ export const DemosPage = () => {
                     <div className="px-2 pb-2">
                         <div className="flex justify-between items-start mb-2">
                             <div>
-                                <h3 className="font-bold text-lg text-slate-800 group-hover:text-pink-500 transition-colors">{track.title}</h3>
-                                <p className="text-sm text-slate-500">{track.artist}</p>
+                                <h3 className="font-bold text-lg text-slate-800 dark:text-white group-hover:text-pink-500 dark:group-hover:text-pink-400 transition-colors">{track.title}</h3>
+                                <p className="text-sm text-slate-500 dark:text-slate-400">{track.artist}</p>
                             </div>
-                            <span className="text-xs font-bold px-2 py-1 bg-slate-100 rounded-md text-slate-500 uppercase">{track.genre}</span>
+                            <span className="text-xs font-bold px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded-md text-slate-500 dark:text-slate-300 uppercase">{track.genre}</span>
                         </div>
-                        <div className="flex items-center gap-4 text-xs text-slate-400 font-medium mt-4">
+                        <div className="flex items-center gap-4 text-xs text-slate-400 dark:text-slate-500 font-medium mt-4">
                             <span className="flex items-center gap-1"><Clock size={14} /> {track.duration}</span>
                             <span className="flex items-center gap-1"><Calendar size={14} /> {track.releaseDate}</span>
                         </div>
@@ -111,7 +111,7 @@ export const DemosPage = () => {
                     
                     <motion.div
                         layoutId={`track-${selectedTrack.id}`}
-                        className="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[2rem] shadow-2xl relative z-10 flex flex-col md:flex-row overflow-hidden"
+                        className="bg-white dark:bg-slate-900 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[2rem] shadow-2xl relative z-10 flex flex-col md:flex-row overflow-hidden border border-slate-100 dark:border-slate-800"
                     >
                         <button 
                             onClick={() => setSelectedTrack(null)}
@@ -132,36 +132,36 @@ export const DemosPage = () => {
                         <div className="flex-1 p-8 md:p-12">
                             <div className="hidden md:block mb-8">
                                 <div className="flex items-center gap-3 mb-2">
-                                     <span className="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-xs font-bold uppercase tracking-wider">{selectedTrack.genre}</span>
+                                     <span className="px-3 py-1 bg-pink-100 dark:bg-pink-900/40 text-pink-600 dark:text-pink-300 rounded-full text-xs font-bold uppercase tracking-wider">{selectedTrack.genre}</span>
                                      <span className="text-slate-400 text-sm font-medium">{selectedTrack.duration} • {selectedTrack.bpm} BPM</span>
                                 </div>
-                                <h2 className="text-4xl font-bold text-slate-800 mb-1">{selectedTrack.title}</h2>
-                                <p className="text-xl text-slate-500">by {selectedTrack.artist}</p>
+                                <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-1">{selectedTrack.title}</h2>
+                                <p className="text-xl text-slate-500 dark:text-slate-400">by {selectedTrack.artist}</p>
                             </div>
 
                             <div className="space-y-8">
                                 <div>
-                                    <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3">About the Track</h4>
-                                    <p className="text-slate-600 leading-relaxed text-lg">
+                                    <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider mb-3">About the Track</h4>
+                                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
                                         {selectedTrack.description}
                                     </p>
                                 </div>
                                 
-                                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                                    <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
+                                <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700">
+                                    <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider mb-3 flex items-center gap-2">
                                         <span className="text-xl">💡</span> The Story
                                     </h4>
-                                    <p className="text-slate-600 italic">
+                                    <p className="text-slate-600 dark:text-slate-300 italic">
                                         "{selectedTrack.story}"
                                     </p>
                                 </div>
 
                                 <div className="flex items-center gap-4 pt-4">
-                                    <button className="flex-1 bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 shadow-xl shadow-slate-200">
+                                    <button className="flex-1 bg-slate-900 dark:bg-white text-white dark:text-slate-900 py-4 rounded-xl font-bold hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 shadow-xl shadow-slate-200 dark:shadow-slate-900/50">
                                         <Play size={20} fill="currentColor" />
                                         Play Demo
                                     </button>
-                                    <button className="px-6 py-4 rounded-xl border border-slate-200 font-bold hover:bg-slate-50 transition-colors text-slate-600">
+                                    <button className="px-6 py-4 rounded-xl border border-slate-200 dark:border-slate-700 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300">
                                         Download
                                     </button>
                                 </div>
