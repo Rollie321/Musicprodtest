@@ -5,6 +5,7 @@ import { Hero } from './components/Hero';
 import { MusicShowcase } from './components/MusicShowcase';
 import { Footer } from './components/Footer';
 import { DemosPage } from './components/DemosPage';
+import { ContactPage } from './components/ContactPage';
 import { ThemeProvider } from './context/ThemeContext';
 
 // Scroll to top on route change
@@ -54,6 +55,7 @@ function App() {
                   <Routes>
                       <Route path="/" element={<HomePage />} />
                       <Route path="/demos" element={<DemosPage />} />
+                      <Route path="/contact" element={<ContactPage />} />
                   </Routes>
               </main>
 
