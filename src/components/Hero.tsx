@@ -39,10 +39,10 @@ export const Hero = () => {
               <Play size={18} fill="currentColor" />
               Listen to Demos
             </Link>
-            <button className="px-8 py-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-full font-bold hover:bg-pink-50 dark:hover:bg-slate-700 hover:border-pink-200 hover:text-pink-600 transition-all flex items-center gap-2">
-              View Portfolio
+            <Link to="/about" className="px-8 py-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-full font-bold hover:bg-pink-50 dark:hover:bg-slate-700 hover:border-pink-200 hover:text-pink-600 transition-all flex items-center gap-2">
+              About Me
               <ArrowRight size={18} />
-            </button>
+            </Link>
           </div>
 
           <div className="mt-12 flex items-center gap-8 justify-center md:justify-start grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500 dark:opacity-40 dark:hover:opacity-100">
