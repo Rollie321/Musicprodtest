@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Play, Pause, SkipForward, SkipBack, Heart, Share2, Volume2 } from 'lucide-react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 import { tracks } from '../data/tracks';
 
@@ -18,9 +19,16 @@ export const MusicShowcase = () => {
         <div className="text-center mb-16">
           <span className="text-pink-500 font-bold tracking-wider uppercase text-sm">Discography</span>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mt-2 mb-4 transition-colors">Latest Tracks & Demos</h2>
-          <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto transition-colors">
+          <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-6 transition-colors">
             From high-energy anime openings to heartfelt OPM ballads and classical arrangements.
           </p>
+          <Link
+            to="/archive"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-full font-bold hover:bg-pink-50 dark:hover:bg-slate-700 hover:border-pink-200 dark:hover:border-pink-900/50 hover:text-pink-600 dark:hover:text-pink-400 transition-all hover:scale-105 active:scale-95 shadow-sm"
+          >
+            View All Tracks
+            <Play size={16} />
+          </Link>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-8 items-start">

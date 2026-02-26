@@ -7,6 +7,7 @@ import { Footer } from './components/Footer';
 import { DemosPage } from './components/DemosPage';
 import { ContactPage } from './components/ContactPage';
 import { AboutPage } from './components/AboutPage';
+import { ArchivePage } from './components/ArchivePage';
 import { ThemeProvider } from './context/ThemeContext';
 
 // Scroll to top on route change
@@ -58,6 +59,7 @@ function App() {
                       <Route path="/demos" element={<DemosPage />} />
                       <Route path="/contact" element={<ContactPage />} />
                       <Route path="/about" element={<AboutPage />} />
+                      <Route path="/archive" element={<ArchivePage />} />
                   </Routes>
               </main>
 
