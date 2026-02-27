@@ -8,6 +8,7 @@ import { DemosPage } from './components/DemosPage';
 import { ContactPage } from './components/ContactPage';
 import { AboutPage } from './components/AboutPage';
 import { ArchivePage } from './components/ArchivePage';
+import { TrackDetailPage } from './components/TrackDetailPage';
 import { ThemeProvider } from './context/ThemeContext';
 
 // Scroll to top on route change
@@ -60,6 +61,7 @@ function App() {
                       <Route path="/contact" element={<ContactPage />} />
                       <Route path="/about" element={<AboutPage />} />
                       <Route path="/archive" element={<ArchivePage />} />
+                      <Route path="/track/:id" element={<TrackDetailPage />} />
                   </Routes>
               </main>
 
